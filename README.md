@@ -1,1 +1,1 @@
-# grapql-codegen-demo
+# graphql-codegen-demo
