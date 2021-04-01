@@ -15,7 +15,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     'prefer-const': 'error',
-    'no-console': 'warn',
+    'no-console': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',

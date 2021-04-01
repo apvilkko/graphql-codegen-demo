@@ -2,5 +2,20 @@
   "name": "@mydemo/api",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf intermediate src/generated",
+    "graphql:codegen": "graphql-codegen --config codegen.yml",
+    "lintfix": "eslint src/generated --fix",
+    "codegen": "run-s clean graphql:codegen lintfix",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.3.13",
+    "@graphql-codegen/cli": "^1.21.3",
+    "@graphql-codegen/introspection": "^1.18.1",
+    "@graphql-codegen/typescript": "^1.21.1",
+    "@graphql-codegen/typescript-operations": "^1.17.15",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.3"
+  }
 }

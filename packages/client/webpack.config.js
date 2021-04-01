@@ -18,6 +18,6 @@ module.exports = {
   },
   plugins: [new HtmlWebpackPlugin({ title: 'graphql-codegen demo' })],
   devServer: {
-    port: 4001,
+    port: 4000,
   },
 }

@@ -7,13 +7,16 @@
     "clean": "rimraf dist",
     "build:app": "webpack --mode production",
     "build": "run-s clean build:app",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "lint": "eslint src"
   },
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "@mydemo/api": "1.0.0"
   },
   "devDependencies": {
+    "@apollo/client": "^3.3.13",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "css-loader": "^5.2.0",
