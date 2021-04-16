@@ -9,3 +9,13 @@ export const GET_POKEMON = gql`
     }
   }
 `
+
+export const SAVE_POKEMON = gql`
+  mutation SavePokemon($pokemon: PokemonInput!) {
+    createPokemon(pokemon: $pokemon) {
+      name
+      id
+      type
+    }
+  }
+`

@@ -8,7 +8,8 @@
     "build:app": "webpack --mode production",
     "build": "run-s clean build:app",
     "start": "webpack serve --mode development",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit --preserveWatchOutput"
   },
   "dependencies": {
     "react": "^17.0.2",

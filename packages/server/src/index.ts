@@ -5,6 +5,7 @@ const typeDefs = gql`
     BUG
     FIRE
     ELECTRIC
+    WATER
   }
 
   type Pokemon {
@@ -13,8 +14,17 @@ const typeDefs = gql`
     type: PokemonType
   }
 
+  input PokemonInput {
+    name: String
+    type: PokemonType
+  }
+
   type Query {
     entries: [Pokemon]
+  }
+
+  type Mutation {
+    createPokemon(pokemon: PokemonInput): Pokemon
   }
 `
 
@@ -27,9 +37,19 @@ const data = ['Metapod,11,BUG', 'Charmander,4,FIRE', 'Pikachu,25,ELECTRIC'].map(
   }
 })
 
+let nextId = 100
+
 const resolvers = {
   Query: {
     entries: () => data,
+  },
+  Mutation: {
+    createPokemon: (_root, args) => {
+      const newItem = { id: nextId++, ...args.pokemon }
+      data.push(newItem)
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      return newItem
+    },
   },
 }
 

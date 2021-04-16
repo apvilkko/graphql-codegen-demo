@@ -15,3 +15,17 @@ Using [GraphQL Code Generator](https://www.graphql-code-generator.com/) to gener
 
 - Generate typings and client code automatically against a backend server
 - Type checking can be used to break the client build when backend schema changes
+
+## Development
+
+Client at http://localhost:4000
+
+```
+yarn start
+```
+
+Update typings (while server running):
+
+```
+yarn codegen
+```

@@ -1,12 +1,10 @@
 import React from 'react'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { ApolloProvider } from '@apollo/client'
+import { createClient } from '@mydemo/api'
 import { Main } from './Main'
 import './style.css'
 
-const client = new ApolloClient({
-  uri: 'http://localhost:4001',
-  cache: new InMemoryCache(),
-})
+const client = createClient()
 
 export const App: React.FC<Record<string, unknown>> = () => {
   return (
