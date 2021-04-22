@@ -2,9 +2,11 @@
   "name": "graphql-codegen-demo",
   "scripts": {
     "build:all": "lerna run build --stream",
+    "clean": "lerna run clean",
     "type-check": "lerna run type-check --stream --scope=\"@mydemo/client\" --scope=\"@mydemo/server\"",
     "build": "yarn build:all",
     "start:client": "lerna run start --stream --scope=\"@mydemo/client\"",
+    "build:client": "lerna run build --stream --scope=\"@mydemo/client\"",
     "start:server": "lerna run start --stream --scope=\"@mydemo/server\"",
     "codegen": "lerna run codegen --stream --scope=\"@mydemo/api\"",
     "start": "run-p start:client start:server",
