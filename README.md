@@ -14,11 +14,17 @@ Using [GraphQL Code Generator](https://www.graphql-code-generator.com/) to gener
 ## The solution
 
 - Generate typings and client code automatically against a backend server
-- Type checking can be used to break the client build when backend schema changes
+- Type checking can be used to break the client build/CI/tests when backend schema changes
 
 ## Development
 
-Client at http://localhost:4000
+Setup
+
+```
+yarn ; yarn lerna bootstrap ; yarn build
+```
+
+Start client at http://localhost:4000
 
 ```
 yarn start
@@ -28,4 +34,10 @@ Update typings (while server running):
 
 ```
 yarn codegen
+```
+
+Check for type errors (you'd run this in CI with tests):
+
+```
+yarn type-check
 ```
