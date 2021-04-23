@@ -54,6 +54,11 @@ export type IQuery = {
   entries?: Maybe<Array<Maybe<IPokemon>>>
 }
 
+export type ITextField = {
+  __typename?: 'TextField'
+  value?: Maybe<Scalars['String']>
+}
+
 export type IGetPokemonQueryVariables = Exact<{ [key: string]: never }>
 
 export type IGetPokemonQuery = { __typename?: 'Query' } & {

@@ -21,3 +21,13 @@ form {
   border: 2px dotted #444;
   padding: 1rem;
 }
+
+ul {
+  margin: 0;
+  list-style-type: none;
+  display: inline-flex;
+}
+
+li {
+  margin-right: 1rem;
+}

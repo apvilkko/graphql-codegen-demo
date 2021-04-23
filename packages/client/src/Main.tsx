@@ -6,18 +6,7 @@ import {
   useSavePokemonMutation,
   IPokemonInput,
 } from '@mydemo/api'
-
-const Pokemon: React.FC<{ data: IPokemon }> = ({ data }) => {
-  return (
-    <div>
-      #{data.id}
-      <ul>
-        <li>Name: {data.name}</li>
-        <li>Type: {data.type}</li>
-      </ul>
-    </div>
-  )
-}
+import { Pokemon } from './Pokemon'
 
 export const Main: React.FC<Record<string, unknown>> = () => {
   const [input, setInput] = useState<IPokemonInput>()
@@ -42,8 +31,6 @@ export const Main: React.FC<Record<string, unknown>> = () => {
       })
     }
   }
-
-  console.log(data, loading, status)
 
   return (
     <>
