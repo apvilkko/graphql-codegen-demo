@@ -6,7 +6,7 @@ export const Pokemon: React.FC<{ data: IPokemon }> = ({ data }) => {
     <div>
       #{data.id}
       <ul>
-        <li>Name: {data.name?.toUpperCase()}</li>
+        <li>Name: {data.name?.value?.toUpperCase()}</li>
         <li>Type: {data.type}</li>
       </ul>
     </div>

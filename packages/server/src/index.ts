@@ -14,8 +14,8 @@ const typeDefs = gql`
 
   type Pokemon {
     id: Int
-    # name: TextField
-    name: String
+    name: TextField
+    # name: String
     type: PokemonType
   }
 
@@ -37,8 +37,8 @@ const data = ['Metapod,11,BUG', 'Charmander,4,FIRE', 'Pikachu,25,ELECTRIC'].map(
   const x = item.split(',')
   return {
     id: Number(x[1]),
-    name: x[0],
-    //name: { value: x[0] },
+    //name: x[0],
+    name: { value: x[0] },
     type: x[2],
   }
 })
@@ -51,8 +51,8 @@ const resolvers = {
   },
   Mutation: {
     createPokemon: (_root, args) => {
-      const newItem = { id: nextId++, ...args.pokemon }
-      //const newItem = { id: nextId++, ...args.pokemon, name: { value: args.pokemon.name } }
+      //const newItem = { id: nextId++, ...args.pokemon }
+      const newItem = { id: nextId++, ...args.pokemon, name: { value: args.pokemon.name } }
       data.push(newItem)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return newItem

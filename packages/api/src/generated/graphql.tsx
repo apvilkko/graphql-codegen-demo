@@ -33,7 +33,7 @@ export type IMutationCreatePokemonArgs = {
 export type IPokemon = {
   __typename?: 'Pokemon'
   id?: Maybe<Scalars['Int']>
-  name?: Maybe<Scalars['String']>
+  name?: Maybe<ITextField>
   type?: Maybe<IPokemonType>
 }
 
@@ -62,7 +62,15 @@ export type ITextField = {
 export type IGetPokemonQueryVariables = Exact<{ [key: string]: never }>
 
 export type IGetPokemonQuery = { __typename?: 'Query' } & {
-  entries?: Maybe<Array<Maybe<{ __typename?: 'Pokemon' } & Pick<IPokemon, 'name' | 'id' | 'type'>>>>
+  entries?: Maybe<
+    Array<
+      Maybe<
+        { __typename?: 'Pokemon' } & Pick<IPokemon, 'id' | 'type'> & {
+            name?: Maybe<{ __typename?: 'TextField' } & Pick<ITextField, 'value'>>
+          }
+      >
+    >
+  >
 }
 
 export type ISavePokemonMutationVariables = Exact<{
@@ -70,13 +78,19 @@ export type ISavePokemonMutationVariables = Exact<{
 }>
 
 export type ISavePokemonMutation = { __typename?: 'Mutation' } & {
-  createPokemon?: Maybe<{ __typename?: 'Pokemon' } & Pick<IPokemon, 'name' | 'id' | 'type'>>
+  createPokemon?: Maybe<
+    { __typename?: 'Pokemon' } & Pick<IPokemon, 'id' | 'type'> & {
+        name?: Maybe<{ __typename?: 'TextField' } & Pick<ITextField, 'value'>>
+      }
+  >
 }
 
 export const GetPokemonDocument = gql`
   query GetPokemon {
     entries {
-      name
+      name {
+        value
+      }
       id
       type
     }
@@ -119,7 +133,9 @@ export type GetPokemonQueryResult = Apollo.QueryResult<IGetPokemonQuery, IGetPok
 export const SavePokemonDocument = gql`
   mutation SavePokemon($pokemon: PokemonInput!) {
     createPokemon(pokemon: $pokemon) {
-      name
+      name {
+        value
+      }
       id
       type
     }
